@@ -1,0 +1,170 @@
+{
+  "Pneumonia": {
+    "description": "Pneumonia is an infection causing inflammation in the air sacs (alveoli) of one or both lungs. These sacs may fill with fluid or pus, leading to respiratory symptoms.",
+    "model_config": {
+      "path": "models/pneumonia_model.keras",
+      "size": [150, 150]
+    },
+    "labels": ["Normal", "Pneumonia"],
+    "details": {
+        "Normal": {
+            "info": "The chest X-ray analysis suggests the lungs appear clear, with no distinct radiological signs typically associated with pneumonia.",
+            "symptoms": [], "causes": [], "treatment_overview": "No treatment specific to pneumonia is indicated.", "diagnosis_methods": [], "prevention": []
+        },
+        "Pneumonia": {
+            "info": "The chest X-ray analysis indicates features (like opacities or consolidations) that are consistent with pneumonia.",
+            "symptoms": ["Cough (productive)", "Fever/chills", "Shortness of breath", "Chest pain", "Fatigue", "Loss of appetite", "Confusion (elderly)"],
+            "causes": ["Bacteria (e.g., Streptococcus pneumoniae)", "Viruses (e.g., influenza, RSV, SARS-CoV-2)", "Fungi", "Aspiration"],
+            "treatment_overview": "Depends on type/severity (antibiotics for bacterial, antivirals/supportive for viral). **Consult a doctor.**",
+            "diagnosis_methods": ["History/Physical", "Chest X-ray", "Blood tests", "Sputum test", "Pulse oximetry"],
+            "prevention": ["Vaccinations", "Hygiene", "Not smoking", "Manage chronic conditions"]
+        }
+    }
+  },
+  "Brain Tumor": {
+    "description": "A brain tumor is an abnormal growth of cells within the brain or central spinal canal. They can be benign (non-cancerous) or malignant (cancerous).",
+    "model_config": {
+      "path": "models/brain_tumor_model.keras",
+      "size": [128, 128]
+    },
+    "labels": ["glioma", "meningioma", "notumor", "pituitary"],
+     "details": {
+        "glioma": {
+            "info": "Analysis of the MRI scan suggests features consistent with a glioma, a type of tumor arising from glial cells.",
+            "symptoms": ["Headaches", "Seizures", "Nausea/vomiting", "Cognitive decline", "Personality changes", "Vision problems", "Speech difficulties", "Motor/sensory loss"],
+            "causes": ["Largely unknown", "Genetic factors (rare)", "Prior radiation therapy"],
+            "treatment_overview": "Varies by type/grade/location. Options: surgery, radiation, chemotherapy, targeted therapy. **Requires specialized medical care.**",
+            "diagnosis_methods": ["Neurological exam", "MRI scan (with contrast)", "CT scan", "Biopsy"],
+            "prevention": ["Largely not preventable"]
+        },
+        "meningioma": {
+            "info": "Analysis of the MRI scan suggests features consistent with a meningioma, a tumor arising from the meninges. Often benign.",
+            "symptoms": ["Often asymptomatic initially", "Headaches", "Vision changes", "Hearing loss/tinnitus", "Seizures", "Weakness in limbs", "Loss of smell"],
+            "causes": ["Largely unknown", "Ionizing radiation", "Genetic factors (NF2)", "More common in women"],
+            "treatment_overview": "Depends on size/location/symptoms. Options: observation, surgery, radiation therapy. **Requires specialized medical care.**",
+            "diagnosis_methods": ["Neurological exam", "MRI scan (with contrast)", "CT scan"],
+            "prevention": ["Largely not preventable"]
+        },
+         "notumor": {
+            "info": "The MRI scan analysis does not show clear radiological signs indicative of a brain tumor.",
+             "symptoms": [], "causes": [], "treatment_overview": "No tumor-specific treatment indicated.", "diagnosis_methods": [], "prevention": []
+        },
+        "pituitary": {
+             "info": "Analysis of the MRI scan suggests features consistent with a pituitary tumor (adenoma). Usually benign.",
+             "symptoms": ["Hormonal imbalances (over/underproduction)", "Headaches", "Vision loss (peripheral)"],
+             "causes": ["Largely unknown", "Rare genetic conditions (MEN 1)"],
+             "treatment_overview": "Depends on hormone production & size. Options: medication, surgery (transsphenoidal), radiation therapy. **Requires specialized care (endocrinologist, neurosurgeon).**",
+             "diagnosis_methods": ["Hormone blood tests", "Vision tests", "MRI scan", "CT scan"],
+             "prevention": ["Largely not preventable"]
+        }
+    }
+  },
+  "Malaria": {
+    "description": "Malaria is a serious disease caused by Plasmodium parasites, transmitted via infected Anopheles mosquito bites.",
+    "model_config": {
+      "path": "models/malaria_model.keras",
+      "size": [128, 128]
+    },
+    "labels": ["Uninfected", "Parasitized"],
+    "details": {
+        "Uninfected": {
+            "info": "Analysis of the blood cell image suggests no visible malaria parasites.",
+             "symptoms": [], "causes": [], "treatment_overview": "No malaria treatment indicated.", "diagnosis_methods": [], "prevention": []
+        },
+        "Parasitized": {
+            "info": "Analysis of the blood cell image shows features consistent with the presence of malaria parasites within red blood cells.",
+            "symptoms": ["Cyclical chills, fever, sweating", "Headache", "Muscle pain", "Fatigue", "Nausea/vomiting"],
+            "causes": ["Plasmodium parasites", "Anopheles mosquito bites"],
+            "treatment_overview": "Requires prompt treatment with prescribed antimalarial drugs. **Medical emergency - seek immediate attention.**",
+            "diagnosis_methods": ["Blood smear microscopy", "Rapid Diagnostic Tests (RDTs)", "PCR"],
+            "prevention": ["Nets (ITNs)", "Spraying (IRS)", "Repellent", "Clothing", "Prophylaxis"]
+        }
+    }
+  },
+   "Tuberculosis": {
+    "description": "Tuberculosis (TB) is an infectious disease usually caused by Mycobacterium tuberculosis bacteria, typically affecting the lungs.",
+    "model_config": {
+      "path": "models/tb_model.keras",
+      "size": [128, 128]
+    },
+    "labels": ["Normal", "Tuberculosis"],
+    "details": {
+        "Normal": {
+            "info": "The chest X-ray analysis suggests the lungs appear clear, without radiological signs typically associated with active pulmonary tuberculosis.",
+            "symptoms": [], "causes": [], "treatment_overview": "No active TB treatment indicated.", "diagnosis_methods": [], "prevention": []
+        },
+        "Tuberculosis": {
+            "info": "The chest X-ray analysis shows features that can be consistent with pulmonary tuberculosis.",
+            "symptoms": ["Persistent cough (>3 weeks)", "Chest pain", "Coughing blood/sputum", "Weakness/fatigue", "Weight loss", "Fever", "Night sweats"],
+             "causes": ["Mycobacterium tuberculosis", "Airborne transmission"],
+            "treatment_overview": "Active TB requires combination antibiotics for 6-9+ months. Latent TB often treated. **Adherence crucial. Consult a doctor.**",
+            "diagnosis_methods": ["History", "Skin test (TST)", "Blood test (IGRA)", "Chest X-ray", "Sputum tests (smear/culture/molecular)"],
+            "prevention": ["BCG vaccine", "Latent TB treatment", "Infection control"]
+        }
+    }
+  },
+  "Dental": {
+    "description": "Dental X-rays or images help detect various oral conditions including cavities, existing restorations, impacted teeth, and implants.",
+    "model_config": {
+      "path": "models/dental_cavity_detector.keras",
+      "size": [128, 128]
+    },
+    "labels": ["cavity", "fillings", "impacted tooth", "implant"],
+    "details": {
+        "cavity": {
+            "info": "Analysis indicates features consistent with a dental cavity (caries).",
+            "symptoms": ["Toothache", "Sensitivity", "Visible holes/pits", "Staining", "Pain on biting"],
+            "causes": ["Bacteria", "Sugary diet", "Poor hygiene"],
+            "treatment_overview": "Fillings, crowns, root canal, or extraction depending on severity. **Consult a dentist.**",
+            "diagnosis_methods": ["Visual exam", "Probe", "X-rays"],
+            "prevention": ["Brushing", "Flossing", "Regular checkups", "Limit sugar"]
+        },
+        "fillings": {
+            "info": "Analysis identifies existing dental fillings (restorations). Condition of filling may need assessment.",
+             "symptoms": ["None unless damaged", "Sensitivity", "Rough edge"],
+             "causes": ["Prior cavity treatment"],
+             "treatment_overview": ["Monitor", "Replace if damaged/leaking. **Consult a dentist.**"],
+             "diagnosis_methods": ["Visual exam", "X-rays"],
+             "prevention": ["Good oral hygiene"]
+        },
+        "impacted tooth": {
+            "info": "Analysis suggests an impacted tooth (a tooth that hasn't erupted properly). Often wisdom teeth.",
+            "symptoms": ["May be asymptomatic", "Pain", "Swelling", "Jaw stiffness", "Bad breath"],
+            "causes": ["Lack of space", "Obstruction", "Abnormal position"],
+            "treatment_overview": ["Observation", "Pain relief", "Antibiotics (if infected)", "Surgical extraction. **Consult dentist/oral surgeon.**"],
+            "diagnosis_methods": ["Visual exam", "X-rays (Panoramic, CBCT)"],
+            "prevention": ["Not directly preventable"]
+        },
+        "implant": {
+            "info": "Analysis identifies a dental implant (artificial tooth root).",
+            "symptoms": ["None if successful", "Pain/swelling if infected"],
+            "causes": ["Prior tooth loss"],
+            "treatment_overview": ["Regular monitoring/cleaning", "Treat infection (peri-implantitis) if present. **Consult dentist/specialist.**"],
+            "diagnosis_methods": ["Visual exam", "X-rays"],
+            "prevention": ["Excellent oral hygiene", "Regular dental visits"]
+        }
+    }
+  },
+  "Diabetic Retinopathy": {
+    "description": "Diabetic retinopathy is an eye complication of diabetes caused by damage to retinal blood vessels.",
+    "model_config": {
+      "path": "models/diabetic_retinopathy_model.keras",
+      "size": [224, 224]
+    },
+    "labels": ["No DR", "DR Present"],
+    "details": {
+        "No DR": {
+            "info": "Analysis of the retinal image suggests no visible signs of diabetic retinopathy.",
+            "symptoms": [], "causes": [], "treatment_overview": "No DR treatment indicated. Focus on diabetes control and regular eye exams.", "diagnosis_methods": [], "prevention": []
+        },
+        "DR Present": {
+            "info": "Analysis of the retinal image shows signs consistent with diabetic retinopathy. Severity requires ophthalmologist assessment.",
+            "symptoms": ["Often asymptomatic early", "Blurred/fluctuating vision", "Floaters", "Dark spots in vision", "Vision loss"],
+            "causes": ["Chronic high blood sugar", "High blood pressure/cholesterol", "Duration of diabetes"],
+            "treatment_overview": "Strict diabetes control. Eye treatments: Laser, Anti-VEGF injections, Steroids, Vitrectomy surgery. **Requires regular monitoring by an ophthalmologist.**",
+            "diagnosis_methods": ["Dilated eye exam", "Fundus photography", "OCT scan", "Fluorescein angiography"],
+            "prevention": ["Strict diabetes management", "Regular dilated eye exams", "Healthy lifestyle"]
+        }
+    }
+  }
+}
