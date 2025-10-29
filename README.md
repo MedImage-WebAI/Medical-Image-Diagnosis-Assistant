@@ -1,86 +1,55 @@
-🧠 AI-Powered Multi-Disease Medical Diagnosis Assistant
-🏥 A Community-Driven Framework for Medical Image Analysis Using Streamlit + TensorFlow + Grad-CAM
+AI-powered Streamlit app for multi-disease medical image diagnosis with Grad-CAM explainability — community-driven project where contributors can add and train new disease models.
+
+🩺 AI-Powered Multi-Disease Medical Image Diagnosis System
+Using Streamlit + TensorFlow + Grad-CAM Explainability
 🚀 Overview
 
-AI-Powered Multi-Disease Medical Diagnosis Assistant is an open-source diagnostic platform that uses deep learning to analyze medical images (X-rays, CTs, MRIs, etc.) and detect diseases with explainable AI.
+Multi-Disease Medical Image Diagnosis is an AI-based diagnostic assistant designed to analyze medical images (X-rays, CT scans, MRIs, etc.) and detect diseases using deep learning models.
+The app provides real-time Grad-CAM heatmaps to visualize areas of interest — making the predictions interpretable, explainable, and clinically valuable.
 
-This system serves as a foundation framework, allowing contributors to:
+Built using:
 
-🧩 Train and integrate new disease models
+🧠 TensorFlow/Keras for deep learning
 
-🌍 Collaboratively expand the diagnosis capabilities
+🌐 Streamlit for an interactive, browser-based interface
 
-🔬 Promote open, interpretable medical AI research
-
-Built with:
-
-🧠 TensorFlow/Keras — Deep Learning Models
-
-🌐 Streamlit — Interactive Web Interface
-
-🔍 Grad-CAM — Explainable AI Visualization
-
-🌟 Project Vision
-
-“One framework, many minds — one assistant, many diagnoses.”
-
-This project aims to become a community-curated AI medical assistant, where researchers and developers can contribute new disease models to build a comprehensive diagnostic system.
-
-Core Goals:
-
-🧬 Build a central AI platform for disease detection
-
-🧠 Enable transparent model explainability
-
-🤝 Foster collaborative growth through open-source contributions
-
-⚙️ Support plug-and-play integration for new disease models
+🔍 Grad-CAM for model explainability
 
 🧩 Key Features
 
-✅ Multi-Disease Support — Classify diseases across multiple medical domains
-✅ Explainable AI (Grad-CAM) — Visual heatmaps highlight key image regions
-✅ Dynamic Model Configuration — Easily expand via disease_info.json
-✅ Streamlit Dashboard — Simple, clean, and interactive interface
-✅ Community Expandable — Contributors can add new diseases & datasets
-✅ Cross-Platform — Works on Windows, Linux, macOS, and cloud platforms
+✅ Multi-Disease Classification – Supports multiple pretrained disease models (e.g., pneumonia, brain tumor, skin disease, etc.)
+✅ Explainable AI – Uses Grad-CAM to show visual attention maps
+✅ Dynamic JSON Configuration – Easily manage supported diseases and model paths via disease_info.json
+✅ Streamlit Interface – Clean, responsive web UI
+✅ Cross-Platform Deployment – Works on Windows, Linux, or cloud platforms (Streamlit Cloud / Hugging Face Spaces)
 
 🧠 System Architecture
-🖼️ User Uploads Image 
-     ↓
-🧠 AI Model (Disease-Specific)
-     ↓
-🔥 Grad-CAM Heatmap Generation
-     ↓
-📊 Visualization on Streamlit Dashboard
 
+Flow:
+User Uploads Image → Preprocessing → Model Inference → Grad-CAM Generation → Streamlit Visualization
 
-Core Components:
+Components:
 
-multi_disease_diagnosis.py → Main Streamlit App
+multi_disease_diagnosis.py → Main Streamlit app
 
-disease_info.json → Stores Disease Metadata, Model Paths, and Labels
+disease_info.json → Contains disease configuration and model metadata
 
-models/ → Pretrained or community-contributed model files
+models/ → Folder containing pre-trained model .h5 files
 
-uploads/ → Temporary user uploads
+uploads/ → Temporary uploaded images
 
 🧪 Example Workflow
 
-1️⃣ Run the Application
+Launch Streamlit:
 
 streamlit run multi_disease_diagnosis.py
 
 
-2️⃣ Upload a Medical Image
+Upload a medical image (X-ray / CT / MRI).
 
-Supported formats: X-ray, CT, MRI, Ultrasound, etc.
+Select the disease model to use.
 
-3️⃣ Select Disease Model
-
-Choose from available pretrained or contributed disease models.
-
-4️⃣ View Results
+View:
 
 🧩 Predicted Class
 
@@ -93,96 +62,112 @@ Choose from available pretrained or contributed disease models.
 git clone https://github.com/<your-username>/<your-repo-name>.git
 cd <your-repo-name>
 
-2️⃣ Create a Virtual Environment
+2️⃣ Create Virtual Environment (Recommended)
 python -m venv venv
-source venv/bin/activate      # Linux / macOS
-venv\Scripts\activate         # Windows
+source venv/bin/activate   # On Linux/Mac
+venv\Scripts\activate      # On Windows
 
 3️⃣ Install Dependencies
 pip install -r requirements.txt
 
-4️⃣ Run the Application
+4️⃣ Run Application
 streamlit run multi_disease_diagnosis.py
 
 🧬 File Structure
 📦 Multi-Disease-Diagnosis
  ┣ 📜 multi_disease_diagnosis.py   # Main Streamlit application
- ┣ 📜 disease_info.json            # Disease configurations and model mappings
- ┣ 📜 requirements.txt             # Dependencies
- ┣ 📜 README.md                    # Project documentation
- ┣ 📂 models/                      # AI models (.keras / .h5)
- ┗ 📂 uploads/                     # Uploaded images
+ ┣ 📜 disease_info.json            # Disease configuration and model mapping
+ ┣ 📜 requirements.txt             # Python dependencies
+ ┣ 📜 README.md                    # Documentation
+ ┣ 📂 models/                      # Pre-trained TensorFlow models (.h5)
+ ┗ 📂 uploads/                     # Uploaded image storage
 
-📚 Example — disease_info.json
+📚 Example disease_info.json
 {
-  "Pneumonia": {
-    "model_path": "models/pneumonia_model.keras",
+  "pneumonia": {
+    "model_path": "models/pneumonia_model.h5",
     "labels": ["Normal", "Pneumonia"]
   },
-  "Brain Tumor": {
-    "model_path": "models/brain_tumor_model.keras",
+  "brain_tumor": {
+    "model_path": "models/brain_tumor_model.h5",
     "labels": ["No Tumor", "Tumor Detected"]
   }
 }
 
 
-🧠 You can easily extend this file by adding new diseases and their trained model paths.
+👉 To add a new disease, simply extend this file with a new entry — no code changes needed!
 
 🔬 Grad-CAM Visualization
 
-Grad-CAM helps interpret the model’s decision by showing which regions of the medical image influenced the diagnosis.
+Grad-CAM highlights the regions that most influenced the model’s decision — making AI predictions transparent and explainable.
 
 Example Output:
 
-🩻 Original X-ray Image
+Original X-ray Image
 
-🔥 Grad-CAM Heatmap Overlay
+Grad-CAM Heatmap Overlay
 
-🧩 Disease Prediction: Pneumonia (Confidence: 96.7%)
+Prediction: Pneumonia (Confidence: 96.7%)
 
 ☁️ Deployment Options
 
-🟢 Streamlit Cloud — One-click deployment
-🟣 Hugging Face Spaces — Streamlit + TensorFlow hosting
-⚙️ Docker / Local Server — For clinical or institutional setups
+🟢 Streamlit Cloud – Easiest for free hosting
+🟣 Hugging Face Spaces – Streamlit + TensorFlow ready
+⚙️ Docker / Local Server – For hospital or internal deployment
 
 🤝 Contribution Guidelines
 
-We welcome researchers, developers, and students to contribute!
+This project is designed to be community-driven and expandable.
+The goal is to create a large-scale AI diagnostic platform that supports multiple diseases — contributed and trained by the open-source community.
 
-How to Contribute a New Disease Model:
+🧩 How You Can Contribute
 
-🧠 Train your model using TensorFlow/Keras on a medical dataset
+Add a new disease:
 
-💾 Save it as .keras or .h5 under the models/ folder
+Train a new model (.h5 file) using TensorFlow/Keras for your target disease.
 
-🧾 Add your disease entry in disease_info.json
+Add an entry for it in disease_info.json (with model path and labels).
 
-🧪 Test locally with Streamlit
+Place the model in the models/ folder.
 
-🔁 Submit a Pull Request with details of your model
+Improve existing models or UI:
 
-Commit Example:
+Enhance Grad-CAM visualization
 
-Add Skin Cancer model and configuration
+Improve preprocessing pipelines
 
-💡 Future Enhancements
+Add new explainability tools or visualization options
 
-🔹 Support for 3D medical data (CT/MRI Volumes)
-🔹 Integration with FHIR/EHR systems for hospital use
-🔹 ONNX / TensorFlow Serving for cloud model hosting
-🔹 Confidence calibration & ensemble predictions
-🔹 Community leaderboard for best-performing models
+Submit your contribution:
+
+Fork this repository
+
+Create a new branch (feature/add-new-disease-<name>)
+
+Commit your changes
+
+Submit a pull request
+
+Every merged contribution helps this project evolve into a comprehensive AI-powered Medical Diagnosis Assistant 🧠
 
 📄 License
 
-Licensed under the MIT License — free to use, modify, and distribute with attribution.
+Licensed under the MIT License — feel free to use, modify, and distribute with proper attribution.
+
+💡 Future Enhancements
+
+🧬 3D CT/MRI volume support
+
+🏥 Integration with hospital data systems (FHIR/HL7)
+
+☁️ TensorFlow Serving / ONNX for real-time inference
+
+📈 Dashboard for analytics and disease model benchmarking
 
 👨‍💻 Developed By
-MedImage-WebAI
 
+Suraj Poddar
+AI & IoT Developer | Open Source Contributor
+📧 your-email@example.com
 
-
-🔖 Repository Short Description
-
-🧠 Open-source Streamlit-based framework for explainable AI medical image diagnosis — contributors add new disease models to expand the assistant’s capabilities.
+🌐 [Your LinkedIn or Portfolio Link]
