@@ -14,8 +14,8 @@ import tensorflow as tf
 
 # Download model from Hugging Face Hub
 model_path = hf_hub_download(
-    repo_id="surajpoddar/pneumonia-detection",  # your repo name
-    filename="pneumonia_model.h5"
+    repo_id="Saitama30/brain_tumor_model.h5",
+    filename="brain_tumor_model.h5"
 )
 
 # Load TensorFlow model
@@ -268,3 +268,4 @@ with col2:
 st.markdown("---")
 
 st.markdown("Developed as an educational project .")
+
