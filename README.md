@@ -143,7 +143,5 @@ This project is licensed under the MIT License — you are free to use, modify, 
 📈 Advanced analytics dashboard
 
 👨‍💻 Developed By
-Suraj Poddar
-AI & IoT Developer | Open Source Contributor
-📧 [your-email@example.com]
-🌐 [your-portfolio-or-linkedin-url]
+MedImage-WebAI
+
