@@ -9,6 +9,17 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm # For colormaps like 'jet'
 from PIL import Image
 import io # To handle byte stream for uploaded file
+from huggingface_hub import hf_hub_download
+import tensorflow as tf
+
+# Download model from Hugging Face Hub
+model_path = hf_hub_download(
+    repo_id="Saitama30/brain_tumor_model.h5",
+    filename="brain_tumor_model.h5"
+)
+
+# Load TensorFlow model
+model = tf.keras.models.load_model(model_path)
 
 # --- Configuration ---
 
@@ -255,4 +266,6 @@ with col2:
 
 # --- Footer ---
 st.markdown("---")
+
 st.markdown("Developed as an educational project .")
+
