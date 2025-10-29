@@ -1,0 +1,10 @@
+streamlit==1.39.0
+tensorflow==2.17.0
+keras==3.4.1
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+pillow==10.4.0
+matplotlib==3.9.2
+scikit-learn==1.5.2
+protobuf==4.25.3
+h5py==3.11.0
