@@ -187,29 +187,29 @@
       }
     }
   },
-  "Osteoarthritis": {
-    "description": "Osteoarthritis is a degenerative joint disease characterized by the breakdown of cartilage, leading to joint pain and stiffness. It can be detected via X-ray images.",
+  "Skin Cancer": {
+    "description": "Skin cancer is the uncontrolled growth of abnormal skin cells, often caused by ultraviolet (UV) radiation exposure. It includes melanoma (the most dangerous type) and non-melanoma types.",
     "model_config": {
-      "path": "models/osteoarthritis_model.keras",
+      "path": "models/skin_cancer_model.keras",
       "size": [224, 224]
     },
-    "labels": ["Normal", "Osteoarthritis"],
+    "labels": ["Benign", "Malignant"],
     "details": {
-      "Normal": {
-        "info": "Analysis of the joint X-ray suggests normal joint spaces with no significant cartilage degeneration.",
-        "symptoms": [],
-        "causes": [],
-        "treatment_overview": "No treatment specific to osteoarthritis is required.",
-        "diagnosis_methods": ["X-ray imaging", "Clinical examination"],
-        "prevention": ["Maintain healthy weight", "Exercise regularly", "Avoid joint injuries"]
+      "Benign": {
+        "info": "The skin lesion image appears consistent with benign (non-cancerous) features such as uniform color, smooth borders, and symmetry.",
+        "symptoms": ["Stable mole", "Uniform color", "Smooth border", "Symmetrical shape"],
+        "causes": ["Normal melanocyte growth", "Genetic factors"],
+        "treatment_overview": "No cancer-specific treatment indicated. Regular monitoring and skin self-exams recommended.",
+        "diagnosis_methods": ["Dermatologist visual exam", "Dermatoscopy", "Skin biopsy (if uncertain)"],
+        "prevention": ["Use sunscreen (SPF 30+)", "Avoid tanning beds", "Wear protective clothing", "Regular skin checks"]
       },
-      "Osteoarthritis": {
-        "info": "X-ray analysis shows joint space narrowing, osteophytes, or cartilage loss, consistent with osteoarthritis.",
-        "symptoms": ["Joint pain", "Stiffness", "Swelling", "Reduced mobility", "Grinding sensation in joints"],
-        "causes": ["Age-related wear and tear", "Joint injuries", "Obesity", "Genetic predisposition"],
-        "treatment_overview": "Management includes pain relief (NSAIDs), physical therapy, weight management, and possibly joint replacement in severe cases. **Consult an orthopedic specialist.**",
-        "diagnosis_methods": ["X-ray imaging", "MRI if needed", "Clinical assessment"],
-        "prevention": ["Maintain healthy weight", "Exercise", "Protect joints from injury", "Healthy diet for bone and cartilage health"]
+      "Malignant": {
+        "info": "The image shows features consistent with malignant melanoma — such as irregular borders, color variation, or asymmetry.",
+        "symptoms": ["New or changing mole", "Irregular border", "Multiple colors (brown, black, red, white, blue)", "Itching or bleeding", "Rapid growth"],
+        "causes": ["Prolonged UV exposure (sunlight, tanning beds)", "Genetic mutations (BRAF, NRAS)", "Fair skin tone", "Family history of melanoma"],
+        "treatment_overview": "Early detection is critical. Treatment includes surgical excision, immunotherapy, targeted therapy, and chemotherapy depending on stage. **Consult a dermatologist or oncologist.**",
+        "diagnosis_methods": ["Visual/Dermatoscopic exam", "Biopsy and histopathology", "Molecular testing", "Sentinel lymph node biopsy (if needed)"],
+        "prevention": ["Limit UV exposure", "Use broad-spectrum sunscreen", "Avoid peak sun hours (10 AM–4 PM)", "Regular dermatologist visits"]
       }
     }
   }
