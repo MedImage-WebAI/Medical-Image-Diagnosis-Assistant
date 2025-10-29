@@ -1,4 +1,5 @@
-# Medical-Image-Diagnosis-Assistant
+AI-powered Streamlit app for multi-disease medical image diagnosis with Grad-CAM explainability — community-driven project where contributors can add and train new disease models.
+
 # 🩺 AI-Powered Multi-Disease Medical Image Diagnosis System  
 ### Using Streamlit + TensorFlow + Grad-CAM Explainability  
 
@@ -144,4 +145,3 @@ This project is licensed under the MIT License — you are free to use, modify, 
 
 👨‍💻 Developed By
 MedImage-WebAI
-
