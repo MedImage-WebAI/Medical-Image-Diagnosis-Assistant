@@ -21,6 +21,13 @@ model_path = hf_hub_download(
 # Load TensorFlow model
 model = tf.keras.models.load_model(model_path)
 
+def clear_all():
+    """Completely reset the Streamlit session and UI."""
+    for key in st.session_state.keys():
+        del st.session_state[key]
+    st.rerun()  # Restart the app to clear everything
+
+
 # --- Configuration ---
 
 # Path to the JSON file containing disease descriptions, models, labels, etc.
@@ -98,8 +105,150 @@ def get_gradcam_heatmap(model, image_tensor, last_conv_layer_name, class_index):
 
 # --- Streamlit App UI Setup ---
 
+# --- CONTRIBUTION 1: ADD CUSTOM CSS FOR A POLISHED UI ---
+def load_css():
+    """Injects custom CSS to improve the app's appearance."""
+    css = """
+    <style>
+        /* --- General Page --- */
+        .main .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        /* --- Title --- */
+        h1 {
+            color: #E0E0E0;
+        }
+
+        /* --- Column Containers (Cards) --- */
+        /* This targets the containers created by st.columns */
+        [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"] > [data-testid="stVerticalBlock"] {
+            background-color: #1E1E1E; /* Dark card background */
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* --- Headers --- */
+        h2 {
+            color: #4CAF50; /* Accent color */
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* --- Styled Alerts (Success, Info, Warning, Error) --- */
+        .stAlert {
+            border-radius: 8px;
+            border: none;
+        }
+        .stAlert[data-alert-level="success"] {
+            background-color: #1A3A1A; color: #90EE90;
+        }
+        .stAlert[data-alert-level="info"] {
+            background-color: #1A314A; color: #ADD8E6;
+        }
+        .stAlert[data-alert-level="warning"] {
+            background-color: #4A3A1A; color: #FFD700;
+        }
+        .stAlert[data-alert-level="error"] {
+            background-color: #4A1A1A; color: #F08080;
+        }
+
+        /* --- Styled File Uploader --- */
+        .stFileUploader {
+            background-color: #252525;
+            border-radius: 8px;
+            border: 2px dashed #444;
+        }
+        .stFileUploader:hover {
+            border-color: #4CAF50;
+        }
+
+        /* --- Styled Tabs --- */
+        [data-baseweb="tab-list"] {
+            background-color: #252525;
+            border-radius: 8px 8px 0 0;
+        }
+        [data-baseweb="tab"] {
+            background-color: #252525;
+            color: #A0A0A0;
+        }
+        [data-baseweb="tab"][aria-selected="true"] {
+            background-color: #333;
+            color: #2196F3;
+        }
+        [data-baseweb="tab-panel"] {
+            background-color: #252525;
+            border-radius: 0 0 8px 8px;
+            padding: 1.5rem;
+            border: 1px solid #333;
+            border-top: none;
+        }
+
+        /* --- Styled Expander --- */
+        .stExpander {
+            background-color: #252525;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        .stExpander summary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #E0E0E0;
+        }
+        .stExpander summary:hover {
+            color: #2196F3;
+        }
+        
+    </style>
+    """
+    st.markdown(css, unsafe_allow_html=True)
+
+# --- Streamlit App UI Setup ---
+
 st.set_page_config(page_title="🩺 Medical Diagnosis AI", layout="wide", initial_sidebar_state="expanded")
-st.title("🩺 Medical Image Diagnosis Assistant")
+load_css() # <-- CSS IS LOADED HERE
+# --- Header with Title and Clear Button ---
+# --- Header with Title and Clear Button ---
+header_col1, header_col2 = st.columns([6, 1])
+
+with header_col1:
+    st.markdown("<h1 style='margin-bottom:0;'>🩺 Medical Image Diagnosis Assistant</h1>", unsafe_allow_html=True)
+
+with header_col2:
+    st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+            background-color: #2196F3;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            width: 100%;
+        }
+        div.stButton > button:first-child:hover {
+            background-color: #1976D2;
+            color: white;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+    if st.button("🔄 Clear / Reset"):
+        clear_all()
+
+
+# --- Clear Button in Header ---
+# col_header1, col_header2 = st.columns([4, 1])
+# with col_header1:
+#     st.write("")  # placeholder for alignment
+# with col_header2:
+#     if st.button("🔄 Clear / Reset", use_container_width=True):
+#         clear_all()
+
 
 # Use columns for better layout
 col1, col2 = st.columns([1, 2]) # Sidebar-like column on left, main area on right
@@ -268,4 +417,3 @@ with col2:
 st.markdown("---")
 
 st.markdown("Developed as an educational project .")
-
